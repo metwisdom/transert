@@ -21,10 +21,15 @@ python3 -m http.server 8000
 
 Then visit <http://localhost:8000>. The page loads Archivo and IBM Plex fonts from Google Fonts, so those fonts require an internet connection; system font fallbacks are defined in the stylesheet.
 
+## Published site
+
+The site is published at <https://metwisdom.github.io/transert/>. GitHub Actions deploys it to GitHub Pages whenever a commit is pushed to `main`. The deployment workflow copies `Index.html` to the lowercase `index.html` entry point required by the Pages root URL.
+
 ## Project files
 
 - `Index.html` — page content and client-side load filtering
 - `styles.css` — layout, responsive rules, and visual styles
+- `.github/workflows/deploy-pages.yml` — GitHub Pages deployment workflow
 
 ## Current scope
 

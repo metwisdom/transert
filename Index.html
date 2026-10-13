@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Transert | Freight load board for Kenya</title>
+    <meta
+      name="description"
+      content="A freight load board for Kenya, starting with the Kenyan corridor and expanding across Africa over time."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav">
+        <div class="brand" aria-label="Transert home">
+          Transert<span>.</span>
+        </div>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#product">Product</a>
+          <a href="#ai">AI</a>
+          <a href="#corridors">Corridors</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="btn btn-primary" href="#contact">Get early access</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="wrap hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Kenya freight network</span>
+            <h1>Bring structure to freight in Kenya.</h1>
+            <p>
+              We are building a load board for Kenya’s freight market, starting
+              with the Kenyan corridor and expanding across Africa over time.
+              The aim is simple: make it easier to turn WhatsApp load posts into
+              structured listings, faster decisions, and fewer empty miles.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact"
+                >Apply for early access</a
+              >
+              <a class="btn btn-secondary" href="#product">See how it works</a>
+            </div>
+            <ul class="stats" aria-label="Key metrics">
+              <li>
+                <strong>Kenya</strong>
+                <span>starting market</span>
+              </li>
+              <li>
+                <strong>24/7</strong>
+                <span>route visibility</span>
+              </li>
+              <li>
+                <strong>1 min</strong>
+                <span>to post a load</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="board-panel" aria-labelledby="board-title">
+            <div class="board-header">
+              <h2 id="board-title">Open loads</h2>
+              <span class="live-tag">Live</span>
+            </div>
+
+            <div
+              class="chip-row"
+              role="group"
+              aria-label="Filter by truck type"
+            >
+              <button
+                class="chip active"
+                type="button"
+                data-t="all"
+                aria-pressed="true"
+              >
+                All trucks
+              </button>
+              <button
+                class="chip"
+                type="button"
+                data-t="10t"
+                aria-pressed="false"
+              >
+                10 t
+              </button>
+              <button
+                class="chip"
+                type="button"
+                data-t="28t"
+                aria-pressed="false"
+              >
+                28 t
+              </button>
+              <button
+                class="chip"
+                type="button"
+                data-t="reefer"
+                aria-pressed="false"
+              >
+                Reefer
+              </button>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Route</th>
+                    <th>Cargo</th>
+                    <th>Truck</th>
+                    <th>Rate</th>
+                  </tr>
+                </thead>
+                <tbody id="loads">
+                  <tr data-t="28t">
+                    <td>Nairobi → Mombasa</td>
+                    <td>1 × 40 ft container</td>
+                    <td>28 t</td>
+                    <td class="price">KSh 95,000</td>
+                  </tr>
+                  <tr data-t="reefer">
+                    <td>Naivasha → Nairobi</td>
+                    <td>Cut flowers, 6 pallets</td>
+                    <td>Reefer</td>
+                    <td class="price">KSh 28,000</td>
+                  </tr>
+                  <tr data-t="10t">
+                    <td>Mombasa → Nairobi</td>
+                    <td>Packaged goods, 8 t</td>
+                    <td>10 t</td>
+                    <td class="price">KSh 62,000</td>
+                  </tr>
+                  <tr data-t="28t">
+                    <td>Nairobi → Malaba</td>
+                    <td>Steel coils, 24 t</td>
+                    <td>28 t</td>
+                    <td class="price">KSh 120,000</td>
+                  </tr>
+                  <tr data-t="10t">
+                    <td>Nakuru → Kisumu</td>
+                    <td>Fertiliser, 9 t</td>
+                    <td>10 t</td>
+                    <td class="price">KSh 48,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="board-footer">
+              <span><strong>Launch lane:</strong> Nairobi–Mombasa</span>
+              <span>Updated live</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="product" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="kicker">What we are building</span>
+            <h2>Structured freight matching for a fragmented market.</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Route visibility</h3>
+              <p>
+                Open loads across key lanes, with route, cargo, truck type, and
+                rate visible before the call starts.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>AI parsing for WhatsApp</h3>
+              <p>
+                Turn unstructured load posts into clean listings with route,
+                cargo, pricing, and pickup details.
+              </p>
+            </article>
+            <article class="feature-card">
+              <h3>Regional expansion</h3>
+              <p>
+                Start with Kenya and scale to broader African corridors once the
+                core network is working well.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="corridors" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="kicker">Launch plan</span>
+            <h2>Start in Kenya. Expand as the network matures.</h2>
+          </div>
+
+          <ul class="route-list">
+            <li>
+              <div>
+                <strong>Nairobi–Mombasa</strong>
+                <span>Port traffic, container moves, and regular returns.</span>
+              </div>
+              <span class="route-tag">Initial focus</span>
+            </li>
+            <li>
+              <div>
+                <strong>Nairobi–Malaba</strong>
+                <span
+                  >Cross-border freight into Uganda and regional trade
+                  lanes.</span
+                >
+              </div>
+              <span class="route-tag">Next</span>
+            </li>
+            <li>
+              <div>
+                <strong>Nakuru–Kisumu</strong>
+                <span
+                  >Agriculture, manufacturing, and regional distribution.</span
+                >
+              </div>
+              <span class="route-tag">Growth</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="section cta-section">
+        <div class="wrap cta-box">
+          <div>
+            <span class="eyebrow dark">Interested in working together?</span>
+            <h2>
+              We’d value founder feedback, AI support, and early customer
+              conversations.
+            </h2>
+          </div>
+          <a class="btn btn-primary" href="mailto:transertlogistics@gmail.com"
+            >transertlogistics@gmail.com</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <div>
+          <div class="brand brand-light">Transert<span>.</span></div>
+          <p>Freight load board for Kenya.</p>
+        </div>
+        <div>
+          <span>Kenya freight infrastructure</span>
+        </div>
+        <div>
+          <a href="mailto:transertlogistics@gmail.com">transertlogistics@gmail.com</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var chips = document.querySelectorAll(".chip");
+        var rows = document.querySelectorAll("#loads tr");
+
+        function applyFilter(type) {
+          rows.forEach(function (row) {
+            var isMatch = type === "all" || row.getAttribute("data-t") === type;
+            row.hidden = !isMatch;
+          });
+
+          chips.forEach(function (chip) {
+            var active = chip.getAttribute("data-t") === type;
+            chip.classList.toggle("active", active);
+            chip.setAttribute("aria-pressed", active ? "true" : "false");
+          });
+        }
+
+        chips.forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            applyFilter(chip.getAttribute("data-t"));
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

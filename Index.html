@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-KE">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -9,7 +9,20 @@
     <title>Transert | Freight load board for Kenya</title>
     <meta
       name="description"
-      content="A freight load board for Kenya, starting with the Kenyan corridor and expanding across Africa over time."
+      content="A freight load-board prototype for Kenya, starting with Nairobi–Mombasa. Sample data only — no live feed."
+    />
+    <meta name="theme-color" content="#edf1ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101a15" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Transert | Freight load board for Kenya" />
+    <meta
+      property="og:description"
+      content="A freight load-board prototype for Kenya. Sample data only — no live feed."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://metwisdom.github.io/transert/" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f4d3a'/%3E%3Ctext x='16' y='23' font-family='Arial,Helvetica,sans-serif' font-size='20' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,12 +35,9 @@
   <body>
     <header class="site-header">
       <div class="wrap nav">
-        <div class="brand" aria-label="Transert home">
-          Transert<span>.</span>
-        </div>
+        <div class="brand">Transert<span>.</span></div>
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#product">Product</a>
-          <a href="#ai">AI</a>
           <a href="#corridors">Corridors</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -43,9 +53,9 @@
             <h1>Bring structure to freight in Kenya.</h1>
             <p>
               We are building a load board for Kenya’s freight market, starting
-              with the Kenyan corridor and expanding across Africa over time.
-              The aim is simple: make it easier to turn WhatsApp load posts into
-              structured listings, faster decisions, and fewer empty miles.
+              with the Nairobi–Mombasa corridor and expanding across Africa over
+              time. The aim is simple: make it easier to turn WhatsApp load posts
+              into structured listings, faster decisions, and fewer empty miles.
             </p>
             <div class="cta-row">
               <a class="btn btn-primary" href="#contact"
@@ -53,26 +63,26 @@
               >
               <a class="btn btn-secondary" href="#product">See how it works</a>
             </div>
-            <ul class="stats" aria-label="Key metrics">
+            <ul class="stats">
               <li>
                 <strong>Kenya</strong>
                 <span>starting market</span>
               </li>
               <li>
-                <strong>24/7</strong>
-                <span>route visibility</span>
+                <strong>1</strong>
+                <span>launch lane</span>
               </li>
               <li>
-                <strong>1 min</strong>
-                <span>to post a load</span>
+                <strong>Sample</strong>
+                <span>load data</span>
               </li>
             </ul>
           </div>
 
-          <div class="board-panel" aria-labelledby="board-title">
+          <div class="board-panel" role="region" aria-labelledby="board-title">
             <div class="board-header">
               <h2 id="board-title">Open loads</h2>
-              <span class="live-tag">Live</span>
+              <span class="sample-tag">Sample data</span>
             </div>
 
             <div
@@ -114,14 +124,30 @@
               </button>
             </div>
 
-            <div class="table-wrap">
+            <p id="filter-status" class="visually-hidden" aria-live="polite"></p>
+
+            <noscript>
+              <p class="noscript-note">
+                Filtering needs JavaScript. All sample loads are shown below.
+              </p>
+            </noscript>
+
+            <div
+              class="table-wrap"
+              tabindex="0"
+              role="region"
+              aria-label="Open loads table"
+            >
               <table>
+                <caption class="visually-hidden">
+                  Example loads, filtered by truck type
+                </caption>
                 <thead>
                   <tr>
-                    <th>Route</th>
-                    <th>Cargo</th>
-                    <th>Truck</th>
-                    <th>Rate</th>
+                    <th scope="col">Route</th>
+                    <th scope="col">Cargo</th>
+                    <th scope="col">Truck</th>
+                    <th scope="col" class="num">Rate</th>
                   </tr>
                 </thead>
                 <tbody id="loads">
@@ -129,31 +155,34 @@
                     <td>Nairobi → Mombasa</td>
                     <td>1 × 40 ft container</td>
                     <td>28 t</td>
-                    <td class="price">KSh 95,000</td>
+                    <td class="price num">KSh 95,000</td>
                   </tr>
                   <tr data-t="reefer">
                     <td>Naivasha → Nairobi</td>
                     <td>Cut flowers, 6 pallets</td>
                     <td>Reefer</td>
-                    <td class="price">KSh 28,000</td>
+                    <td class="price num">KSh 28,000</td>
                   </tr>
                   <tr data-t="10t">
                     <td>Mombasa → Nairobi</td>
                     <td>Packaged goods, 8 t</td>
                     <td>10 t</td>
-                    <td class="price">KSh 62,000</td>
+                    <td class="price num">KSh 62,000</td>
                   </tr>
                   <tr data-t="28t">
                     <td>Nairobi → Malaba</td>
                     <td>Steel coils, 24 t</td>
                     <td>28 t</td>
-                    <td class="price">KSh 120,000</td>
+                    <td class="price num">KSh 120,000</td>
                   </tr>
                   <tr data-t="10t">
                     <td>Nakuru → Kisumu</td>
                     <td>Fertiliser, 9 t</td>
                     <td>10 t</td>
-                    <td class="price">KSh 48,000</td>
+                    <td class="price num">KSh 48,000</td>
+                  </tr>
+                  <tr id="no-results" hidden>
+                    <td colspan="4">No loads match this truck type.</td>
                   </tr>
                 </tbody>
               </table>
@@ -161,7 +190,7 @@
 
             <div class="board-footer">
               <span><strong>Launch lane:</strong> Nairobi–Mombasa</span>
-              <span>Updated live</span>
+              <span>Sample loads — not a live feed</span>
             </div>
           </div>
         </div>
@@ -186,7 +215,8 @@
               <h3>AI parsing for WhatsApp</h3>
               <p>
                 Turn unstructured load posts into clean listings with route,
-                cargo, pricing, and pickup details.
+                cargo, pricing, and pickup details. Proposed — not implemented
+                in this prototype.
               </p>
             </article>
             <article class="feature-card">
@@ -199,6 +229,7 @@
           </div>
         </div>
       </section>
+
       <section id="corridors" class="section">
         <div class="wrap">
           <div class="section-head">
@@ -242,8 +273,8 @@
           <div>
             <span class="eyebrow dark">Interested in working together?</span>
             <h2>
-              We’d value founder feedback,Support, and early customer
-              conversations or suggestions.
+              We’d value founder feedback, support, and early customer
+              conversations.
             </h2>
           </div>
           <a class="btn btn-primary" href="mailto:transertlogistics@gmail.com"
@@ -256,14 +287,16 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <div>
-          <div class="brand brand-light">Transert<span>.</span></div>
+          <div class="brand brand-footer">Transert<span>.</span></div>
           <p>Freight load board for Kenya.</p>
         </div>
         <div>
-          <span>Kenya freight infrastructure</span>
+          <span>Static prototype · sample data</span>
         </div>
         <div>
-          <a href="mailto:transertlogistics@gmail.com">transertlogistics@gmail.com</a>
+          <a href="mailto:transertlogistics@gmail.com"
+            >transertlogistics@gmail.com</a
+          >
         </div>
       </div>
     </footer>
@@ -271,19 +304,33 @@
     <script>
       (function () {
         var chips = document.querySelectorAll(".chip");
-        var rows = document.querySelectorAll("#loads tr");
+        var rows = document.querySelectorAll("#loads tr[data-t]");
+        var emptyRow = document.getElementById("no-results");
+        var status = document.getElementById("filter-status");
 
         function applyFilter(type) {
+          var shown = 0;
+
           rows.forEach(function (row) {
             var isMatch = type === "all" || row.getAttribute("data-t") === type;
             row.hidden = !isMatch;
+            if (isMatch) shown++;
           });
+
+          if (emptyRow) emptyRow.hidden = shown !== 0;
 
           chips.forEach(function (chip) {
             var active = chip.getAttribute("data-t") === type;
             chip.classList.toggle("active", active);
             chip.setAttribute("aria-pressed", active ? "true" : "false");
           });
+
+          if (status) {
+            status.textContent =
+              shown === 0
+                ? "No loads match this truck type."
+                : shown + (shown === 1 ? " load shown" : " loads shown");
+          }
         }
 
         chips.forEach(function (chip) {

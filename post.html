@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-KE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Post a Load | Transert</title>
+    <meta name="description" content="Post a new freight load to the Transert board." />
+    <meta name="theme-color" content="#edf1ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101a15" media="(prefers-color-scheme: dark)" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="auth-page">
+    <main class="auth-container" style="max-width: 600px;">
+      <a href="index.html" class="auth-back">← Back to Load Board</a>
+      
+      <div class="auth-card">
+        <div class="auth-header" style="text-align: left;">
+          <span class="kicker">Shipper Portal</span>
+          <h1>Post a new load</h1>
+          <p>Enter the details below to add a load to the board.</p>
+        </div>
+
+        <form id="post-load-form" class="auth-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="origin">Origin</label>
+              <input type="text" id="origin" required placeholder="e.g. Nairobi" />
+            </div>
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <input type="text" id="destination" required placeholder="e.g. Mombasa" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cargo">Cargo Description</label>
+            <input type="text" id="cargo" required placeholder="e.g. 1 × 40 ft container" />
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="truck">Truck Type</label>
+              <select id="truck" required>
+                <option value="" disabled selected>Select truck type</option>
+                <option value="10t">10 t</option>
+                <option value="28t">28 t</option>
+                <option value="reefer">Reefer</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="rate">Rate (KSh)</label>
+              <input type="number" id="rate" required placeholder="e.g. 95000" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary auth-submit">
+            Post Load to Board
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <script>
+      document.getElementById('post-load-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const origin = document.getElementById('origin').value.trim();
+        const destination = document.getElementById('destination').value.trim();
+        const cargo = document.getElementById('cargo').value.trim();
+        const truck = document.getElementById('truck').value;
+        const rateValue = document.getElementById('rate').value;
+
+        // Format the rate with commas (e.g., 95,000)
+        const rate = 'KSh ' + Number(rateValue).toLocaleString('en-KE');
+
+        // Create the new load object
+        const newLoad = {
+          route: `${origin} → ${destination}`,
+          cargo: cargo,
+          truck: truck,
+          rate: rate
+        };
+
+        // Retrieve existing loads from localStorage, or start with an empty array
+        let loads = JSON.parse(localStorage.getItem('transert_custom_loads')) || [];
+        
+        // Add the new load to the top of the list
+        loads.unshift(newLoad);
+
+        // Save back to localStorage
+        localStorage.setItem('transert_custom_loads', JSON.stringify(loads));
+
+        // Redirect to the home page
+        window.location.href = 'index.html';
+      });
+    </script>
+  </body>
+</html>
